@@ -33,12 +33,12 @@ describe Node do
   end
 
   it "gets the lowest common ancestor" do
-    # node_a = tree.left.left
-    # node_b = tree.left.right.right
-    node_a = tree.left.right
-    node_b = tree.right
+    node_a = tree.left.left
+    node_b = tree.left.right.right
+    # node_a = tree.left.right
+    # node_b = tree.right
 
-    expect(Node.lowest_common_ancestor(tree, node_a, node_b).id).to eql(0)
+    expect(Node.lowest_common_ancestor(tree, node_a, node_b).id).to eql(1)
 
   end
 end

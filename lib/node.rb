@@ -18,7 +18,7 @@ class Node
     end
 
     if left
-      nil
+      left
     else
       right
     end
