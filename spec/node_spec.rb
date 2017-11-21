@@ -1,10 +1,6 @@
 require_relative "../lib/node"
 
 describe Node do
-  # before(:each) do
-
-  # end
-
   let(:root) { Node.new("root") }
 
   let(:tree) do
@@ -26,7 +22,6 @@ describe Node do
     root
   end
 
-
   it "gets the id" do
     expect(root.id).to eq("root")
     t = tree
@@ -35,10 +30,18 @@ describe Node do
   it "gets the lowest common ancestor" do
     node_a = tree.left.left
     node_b = tree.left.right.right
-    # node_a = tree.left.right
-    # node_b = tree.right
 
     expect(Node.lowest_common_ancestor(tree, node_a, node_b).id).to eql(1)
+  end
 
+  describe "invalid input" do
+    it "returns nil for nil tree" do
+      expect(Node.lowest_common_ancestor(nil, tree.left, tree.right)).to be_nil
+    end
+
+    it "returns nil if either a or b is null" do
+      expect(Node.lowest_common_ancestor(root, nil, tree.right)).to be_nil
+      expect(Node.lowest_common_ancestor(root, tree.left, nil)).to be_nil
+    end
   end
 end
